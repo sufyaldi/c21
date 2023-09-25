@@ -1,0 +1,169 @@
+<%- include('../partials/header') %>
+    <div class="container">
+        <div class="profil">
+            <a id="upload" href="users/upload"><img src="<%= profil.avatar? `../images/${profil.avatar}` : `../images/default_avatar.jpg` %>"></a>
+            <h1><%= profil.email %></h1>
+            <a id="logout" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+        </div>
+        <h1>PostgreSQL Bread (Browse,Read,Edit,Add,Delete) and Pagination</h1>
+        <form action="" method="get">
+            <input type="hidden" id="page" name="page" value="1">
+            <div class="inner">
+                <div class="row">
+                    <label for="name">Title</label>
+                    <div class="col-75">
+                        <input type="text" id="title" name="title" placeholder="insert your name" value="<%= query.title %>">
+                    </div>
+                </div>
+                <div class="rowdate">
+                    <label for="deadline">Deadline</label>
+                    <div class="deadline">
+                        <input type="date" id="strDate" name="strDate" value="<%= query.strDate %>">
+                        <p>s.d.</p>
+                        <input type="date" id="endDate" name="endDate" value="<%= query.endDate %>">
+                    </div>
+                </div>
+                <div class="rowselect">
+                    <label for="complete">Complete</label>
+                    <% if(query.complete == 'true') { %>
+                    <select id="complete" name="complete">
+                        <option value="">-select complete-</option>
+                        <option value="true" selected>Done</option>
+                        <option value="false">Not Yet</option>
+                    </select>
+                    <% } else if (query.complete == 'false') { %>
+                        <select id="complete" name="complete">
+                            <option value="">-select complete-</option>
+                            <option value="true">Done</option>
+                            <option value="false" selected>Not Yet</option>
+                        </select>
+                    <% } else { %>
+                        <select id="complete" name="complete">
+                            <option value="" selected>-select complete-</option>
+                            <option value="true">Done</option>
+                            <option value="false">Not Yet</option>
+                        </select>
+                    <% } %>
+                </div>
+                <div class="rowradio">
+                    <legend>Operation</legend>
+                        <% if(query.type_search == 'OR') { %>
+                            <div class="select" id="select">
+                                <div class="option">
+                                    <input type="radio" id="OR" name="type_search" value="OR" checked/>OR
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="AND" name="type_search" value="AND"/>AND
+                                </div>
+                            </div>
+                        <% } else if(query.type_search == "AND") { %>
+                            <div class="select" id="select">
+                                <div class="option">
+                                    <input type="radio" id="OR" name="type_search" value="OR"/>OR
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="AND" name="type_search" checked value="AND"/>AND
+                                </div>
+                            </div>
+                        <% } else { %>
+                            <div class="select" id="select">
+                                <div class="option">
+                                    <input type="radio" id="OR" name="type_search" value="OR" required checked/>OR
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="AND" name="type_search" value="AND"/>AND
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="buttonfind">
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <a href="/users"><i class="fa-solid fa-rotate"></i></a>
+                    </div>                 
+            </div>
+        </form>
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>
+                            <div class="sort">
+                                <a href="<%= url.includes(`&sort=${typeSort}`) ? ('/users'+url.replace(`&sort=${typeSort}`, '&sort=title+ASC')) : `/users/?${url.slice(2) + '&'}sort=title+ASC` %>"><i class="fa-solid fa-caret-up"></i></a>
+                                Title
+                                <a href="<%= url.includes(`&sort=${typeSort}`) ? ('/users'+url.replace(`&sort=${typeSort}`, '&sort=title+DESC')) : `/users/?${url.slice(2) + '&'}sort=title+DESC` %>"><i class="fa-solid fa-caret-down"></i></a>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="sort">
+                                <a href="<%= url.includes(`&sort=${typeSort}`) ? ('/users'+url.replace(`&sort=${typeSort}`, '&sort=complete+ASC')) : `/users/?${url.slice(2) + '&'}sort=complete+ASC` %>"><i class="fa-solid fa-caret-up"></i></a>
+                                Complete
+                                <a href="<%= url.includes(`&sort=${typeSort}`) ? ('/users'+url.replace(`&sort=${typeSort}`, '&sort=complete+DESC')) : `/users/?${url.slice(2) + '&'}sort=complete+DESC` %>"><i class="fa-solid fa-caret-down"></i></a>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="sort">
+                                <a href="<%= url.includes(`&sort=${typeSort}`) ? ('/users'+url.replace(`&sort=${typeSort}`, '&sort=deadline+ASC')) : `/users/?${url.slice(2) + '&'}sort=deadline+ASC` %>"><i class="fa-solid fa-caret-up"></i></a>
+                                Deadline
+                                <a href="<%= url.includes(`&sort=${typeSort}`) ? ('/users'+url.replace(`&sort=${typeSort}`, '&sort=deadline+DESC')) : `/users/?${url.slice(2) + '&'}sort=deadline+DESC` %>"><i class="fa-solid fa-caret-down"></i></a>
+                            </div>
+                        </th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach((value,index)=> { %>
+                        <tr>
+                            <td>
+                                <%= index + offset + 1 %>
+                            </td>
+                            <td>
+                                <%= value.title %>
+                            </td>
+                            <td>
+                                <%= value.complete? "Done" : "Not Yet"  %>
+                            </td>
+                            <td>
+                                <%= moment(value.deadline).format('DD MMM YYYY, h:mm')%>
+                            </td>
+                            <td>
+                                <a class="update" href="/users/edit/<%= value.id %>"><i class="fa-sharp fa-solid fa-pencil"></i></a>&nbsp<a class="delete" href="/users/delete/<%= value.id %>" onclick="return confirmation('<%= value.name %>')"><i class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>    
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="foot">
+            <a id="add" href="/users/add"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></a>
+            <div class="page">
+                <% if(url.includes('page=')) { %>
+                    <a href="<%= page == 1 ? '/users' + url.replace(`page=${page}`, `page=1`) : '/users' + url.replace(`page=${page}`, `page=${page - 1}`) %>">
+                        <% if (page != 1) { %>
+                            &laquo;
+                        <% } %>
+                    </a>
+                <% } else { %>
+                    <a href="/users/?page=1<%= url.slice(2) %>">&laquo;</a>
+                <% } %>
+                
+                <div class="pagenumber">
+                <% for(let i = 1; i <= pages; i++) { %>
+                    <a href="/users<%= url.includes('page=') ? url.replace(`page=${page}`, `page=${i}`): `/?page=${i}${'&' + url.slice(2)}` %>" class="<%= i == page? 'select' : '' %>"><%= i %></a>
+                <% } %> 
+                </div>
+                <% if(url.includes('page=')) { %>
+                    <a href="<%= page == pages ? '/users' + url.replace(`page=${page}`, `page=${pages}`) : '/users' + url.replace(`page=${page}`, `page=${page * 1 + 1}`) %>">
+                        <% if (page != pages) { %>
+                            &raquo;
+                        <% } %>
+                    </a>
+                <% } else { %>
+                    <a href="/users/?page=2<%= url.slice(2) %>">&raquo;</a>
+                <% } %>
+            </div>
+        </div>
+
+
+<%- include('../partials/footer') %>

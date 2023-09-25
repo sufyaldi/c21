@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+<div class="container form">
+    <h1>Edit Data</h1>
+    <form action="" method="post">
+        <div class="inner">
+            <div class="row">
+                <label for="title">Title</label>
+                <div class="col-75">
+                    <input type="text" id="title" name="title" placeholder="insert your title" value="<%= data[0].title %>" required>
+                </div>
+            </div>                 
+            <div class="row">
+                <label for="deadline">Deadline</label>
+                <div class="col-75">
+                    <input type="date" id="deadline" name="deadline" value="<%= moment(data[0].deadline).format('YYYY-MM-DD') %>" required>
+                </div>
+            </div>
+            <div class="rowcheckbox">
+                <legend>Complete</legend>
+                <div class="option">
+                    <input id="complete" name="complete" type="checkbox" <%= data[0].complete? "checked": "" %>>done
+                </div>
+            </div>                 
+        </div>
+        <div class="buttonform">
+            <button type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
+            <a href="/users"><i class="fa-solid fa-rotate-left"></i></a>
+        </div>
+    </form> 
+</div>
+<%- include('../partials/footer') %>

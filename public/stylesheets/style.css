@@ -1,0 +1,415 @@
+body {
+  padding: 20px;
+  font: medium Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  background-color: whitesmoke;
+  margin: auto;
+  width: 70%;
+  box-shadow: 0px 0px 2px rgb(167, 167, 167);
+  border-radius: 5px;
+
+}
+
+h1 {
+  padding: 10px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.inner {
+  background-color: white;
+  padding: 5px 15px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: medium;
+  border-radius: 7px;
+  border-style: solid;
+  border-color: whitesmoke;
+
+}
+
+label {
+  padding: 10px 0px;
+  display: inline-block;
+}
+
+.row {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.col-75 {
+  float: right;
+  width: 82%;
+  resize: vertical;
+}
+
+.inner::after {
+  clear: both;
+  content: "";
+}
+
+.rowcheckbox,
+.rowradio {
+  padding: 0px;
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.rowcheckbox>legend,
+.rowradio>legend {
+  float: left;
+  padding-left: 5px;
+  width: 18%;
+}
+
+.select {
+  display: inline-block;
+}
+
+.option input {
+  width: fit-content;
+  display: inline;
+  margin-bottom: 30px;
+}
+
+.option input {
+  cursor: pointer;
+  accent-color: blue;
+}
+
+.buttonform {
+  margin-left: 15px;
+}
+
+.buttonform>button {
+  margin: 10px 0px;
+  padding: 10px 13px;
+  background-color: rgb(57, 57, 255);
+  color: white;
+  font-size: medium;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.buttonform>a {
+  margin: 10px 0px;
+  padding: 10px 13px;
+  text-decoration: none;
+  text-align: center;
+  background-color: orange;
+  color: black;
+  border-radius: 7px;
+  border: none;
+  display: inline-block;
+}
+
+.rowdate {
+  box-sizing: border-box;
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  padding-right: 5px;
+}
+
+.rowdate label {
+  display: block;
+  padding-left: 5px;
+  margin-top: 5px;
+  width: 18%;
+  float: left;
+}
+
+.rowdate input,
+.rowdate p {
+  display: inline-block;
+}
+
+.deadline {
+  box-sizing: border-box;
+  display: inline-block;
+  padding-left: 4px;
+  width: 82%;
+}
+
+.deadline input {
+  width: 40%;
+}
+
+.deadline p {
+  text-align: center;
+  padding: 0px;
+  width: 20%;
+}
+
+.deadline :first-child {
+  float: left;
+  margin-top: 4px;
+}
+
+.deadline :last-child {
+  float: right;
+  margin-top: 4px;
+}
+
+.rowselect {
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.rowselect label {
+  width: 18%;
+}
+
+.rowselect select {
+  float: right;
+  width: 82%;
+  border: 2px solid whitesmoke;
+  background-color: white;
+  border-radius: 7px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: medium;
+}
+
+#select .option {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.buttonfind {
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-right: 10px;
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+}
+
+.buttonfind button {
+  background-color: #00B7FF;
+  border-color: #00B7FF;
+  border-radius: 7px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 13px;
+}
+
+
+.buttonfind a {
+  background-color: orange;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-size: medium;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 13px;
+  border-radius: 7px;
+}
+
+.table {
+  margin: auto;
+
+}
+
+.foot {
+  padding-bottom: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgb(184, 184, 184);
+}
+
+.foot>a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.page {
+  float: right;
+  margin-right: 25px;
+  border-radius: 7px;
+  background-color: white;
+  border-collapse: collapse;
+}
+
+.page a {
+  display: inline-block;
+  padding: 9px 13px;
+  text-decoration: none;
+  color: blue;
+}
+
+.pagenumber {
+  display: inline-block;
+}
+
+.pagenumber .select {
+  color: white;
+  background-color: blue;
+}
+
+
+#add {
+  background-color: rgb(57, 57, 255);
+  text-align: center;
+  color: white;
+  padding: 10px 13px;
+  margin-left: 20px;
+  border-radius: 7px;
+}
+
+.table {
+  background-color: white;
+  padding: 25px 0px 10px;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px 15px
+}
+
+tbody tr:nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+.delete {
+  text-decoration: none;
+  display: inline-block;
+  background-color: red;
+  padding: 10px 13px;
+  text-align: center;
+  border-radius: 7px;
+  color: white;
+}
+
+.update {
+  text-decoration: none;
+  display: inline-block;
+  background-color: green;
+  padding: 10px 13px;
+  text-align: center;
+  border-radius: 7px;
+  color: white;
+}
+
+.add {
+  margin-bottom: 30px;
+}
+
+.sort a {
+  color: black;
+}
+
+.form {
+  width: 60%;
+}
+
+.box {
+  background-color: whitesmoke;
+  margin: auto;
+  margin-top: 10px;
+  width: 60%;
+  box-shadow: 0px 0px 2px rgb(167, 167, 167);
+  border-radius: 5px;
+}
+
+.upload {
+  font-size: medium;
+  display: inline-block;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.upload .col-75 {
+  width: 82%;
+}
+
+.image {
+  display: inline-block;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.image p {
+  float: left;
+  width: 18%;
+}
+
+.image img {
+  float: left;
+  width: 40%;
+}
+
+.profil {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  height: 100px;
+  padding: 10px 20px;
+  position: relative;
+  border-bottom: 1px solid #cfc4c4;
+}
+
+.profil img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 47.5%;
+}
+
+.profil a {
+  display: inline-block;
+}
+
+.profil h1 {
+  font-size: x-large;
+  margin: 0px;
+  margin-left: 15px;
+  display: inline-block;
+  position: absolute;
+  top: 25%;
+}
+
+#logout {
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  background-color: #767b81;
+  border-radius: 7px;
+  display: inline-block;
+  position: absolute;
+  top: 30%;
+  right: 20px;
+}
