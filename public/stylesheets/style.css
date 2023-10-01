@@ -1,3 +1,16 @@
+.overdue-bg {
+  background-color:rgb(128, 0, 0) ;
+}
+
+.overdue-text {
+  color: white ;
+}
+
+/* tr.overdue {
+  background-color: red !important;
+  color: white !important;
+} */
+ 
 body {
   padding: 20px;
   font: medium Arial, Helvetica, sans-serif;
@@ -253,7 +266,7 @@ label {
   float: right;
   margin-right: 25px;
   border-radius: 7px;
-  background-color: white;
+  background-color: whitesmoke;
   border-collapse: collapse;
 }
 
@@ -299,9 +312,9 @@ td {
   padding: 10px 15px
 }
 
-tbody tr:nth-child(odd) {
+/* tbody tr:nth-child(odd) {
   background-color: whitesmoke;
-}
+} */
 
 .delete {
   text-decoration: none;
@@ -413,3 +426,10 @@ tbody tr:nth-child(odd) {
   top: 30%;
   right: 20px;
 }
+.update-box,
+.delete-box {
+    display: inline-block;
+    padding: 10px; 
+    box-shadow: 2px 2px 4px rgb(255, 255, 255); 
+}
+

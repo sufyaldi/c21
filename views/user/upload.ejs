@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BREAD (Browse, Read, Edit, Add, Delete)</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/all.css">
-    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
+
 <body>
     <div class="box form">
         <h1 style="font-weight: bold; font-size: xx-large;">Change Avatar</h1>
         <form action="" method="post" ref='uploadForm' id='uploadForm' encType="multipart/form-data">
             <div class="inner">
                 <div class="upload">
-                    <label for="avatar" class="col-form-label" style="font: medium; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Avatar</label>
+                    <label for="avatar" class="col-form-label"
+                        style="font: medium; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Avatar</label>
                     <div class="col-75">
-                        <input type="file" class="form-control" id="avatar" name="avatar" placeholder="choose file"/>
+                        <input type="file" class="form-control" id="avatar" name="avatar" placeholder="choose file" />
                     </div>
                 </div>
                 <div class="image">
                     <p>Preview</p>
-                    <img id="avatarImg" src="<%= prevAvatar? `../images/${prevAvatar}` : `../images/default_avatar.jpg` %>" alt="avatar" class="img-thumbnail">
+                    <img id="avatarImg"
+                        src="<%= prevAvatar? `../images/${prevAvatar}` : `../images/default_avatar.png` %>" alt="avatar"
+                        class="img-thumbnail">
                 </div>
-            </div>     
+            </div>
             <div class="buttonform">
                 <button type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
                 <a href="/users"><i class="fa-solid fa-rotate-left"></i></a>
             </div>
-        </form> 
+        </form>
     </div>
     <script>
         avatar.onchange = () => {
@@ -39,4 +45,5 @@
         }
     </script>
 </body>
+
 </html>

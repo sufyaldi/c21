@@ -45,7 +45,7 @@ module.exports = function (db) {
     } else {
       const hash = bcrypt.hashSync(password, saltRounds);
       try {
-        const {rows: users} = await db.query('SELECT * FROM "users" WHERE email = $1', [email])
+        const { rows: users } = await db.query('SELECT * FROM "users" WHERE email = $1', [email])
         if (users.length > 0) {
           req.flash('failedInfo', "Email already exists")
           res.redirect('/register')

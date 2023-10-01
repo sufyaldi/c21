@@ -60,11 +60,9 @@ app.use(function(err, req, res, next) {
 });
 
 console.log("Aplikasi sedang berjalan...");
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server berjalan di port ${port}`);
 });
 
 module.exports = app;
-
-
