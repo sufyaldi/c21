@@ -31,19 +31,19 @@
                     <label for="complete">Complete</label>
                     <% if(query.complete=='true' ) { %>
                         <select id="complete" name="complete">
-                            <option value=""> Select Complete </option>
+                            <option value=""> Is Complete ? </option>
                             <option value="true" selected>Done</option>
                             <option value="false">Not Yet</option>
                         </select>
                         <% } else if (query.complete=='false' ) { %>
                             <select id="complete" name="complete">
-                                <option value=""> Select Complete </option>
+                                <option value=""> Is Complete ? </option>
                                 <option value="true">Done</option>
                                 <option value="false" selected>Not Yet</option>
                             </select>
                             <% } else { %>
                                 <select id="complete" name="complete">
-                                    <option value="" selected> Select Complete </option>
+                                    <option value="" selected> Is Complete ? </option>
                                     <option value="true">Done</option>
                                     <option value="false">Not Yet</option>
                                 </select>
