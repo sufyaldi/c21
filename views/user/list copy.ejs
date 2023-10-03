@@ -128,27 +128,33 @@
                     </tr>
                 </thead>
 
+
+
                 <tbody>
                     <% data.forEach((value,index)=> { %>
-                        <tr class="<% if (!value.complete && new Date(value.deadline) < new Date()) { %>overdue-bg overdue-text<% } %>">
-                            <td><%= index + offset + 1 %></td>
-                            <td><%= value.title %></td>
-                            <td><%= value.complete? "Done" : "Not Yet" %></td>
-                            <td><%= moment(value.deadline).format('DD MMM YYYY, h:mm')%></td>
+                        <tr
+                            class="<% if (!value.complete && new Date(value.deadline) < new Date()) { %>overdue-bg overdue-text<% } %>">
                             <td>
-                                <!-- Button to trigger the delete confirmation -->
-                                <a class="update" href="/users/edit/<%= value.id %>">
-                                    <i class="fa-sharp fa-solid fa-pencil"></i>
-                                </a>
-                                &nbsp;
-                                <!-- Button to trigger the delete confirmation -->
-                                <a class="delete" href="/users/delete/<%= value.id %>"
-                                    onclick="return confirmation('<%= value.title %>')">
-                                    <i class="fa-solid fa-trash"></i>
-                                </a>
+                                <%= index + offset + 1 %>
+                            </td>
+                            <td>
+                                <%= value.title %>
+                            </td>
+                            <td>
+                                <%= value.complete? "Done" : "Not Yet" %>
+                            </td>
+                            <td>
+                                <%= moment(value.deadline).format('DD MMM YYYY, h:mm')%>
+                            </td>
+                            <td>
+                                <a class="update" href="/users/edit/<%= value.id %>"><i
+                                        class="fa-sharp fa-solid fa-pencil"></i></a>&nbsp<a class="delete"
+                                    href="/users/delete/<%= value.id %>"
+                                    onclick="return confirmation('<%= value.name %>')"><i
+                                        class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
-                    <% }) %>
+                        <% }) %>
                 </tbody>
 
 

@@ -28,7 +28,7 @@ module.exports = function (db) {
     if (strDate && endDate) {
       params.push(strDate, endDate);
       paramscount.push(strDate, endDate);
-      queries.push(`deadline BETWEEN $${params.length - 1} and $${params.length}`);
+      queries.push(`deadline BETWEEN $${params.length - 1} and $${params.length} ::timestamp + interval '1 day - 1 second' `);
     } else if (strDate) {
       params.push(strDate);
       paramscount.push(strDate);
@@ -36,7 +36,7 @@ module.exports = function (db) {
     } else if (endDate) {
       params.push(endDate);
       paramscount.push(endDate);
-      queries.push(`deadline <= $${params.length}`);
+      queries.push(`deadline <= $${params.length}::timestamp + interval '1 day - 1 second'`);
     };
 
     if (complete) {
